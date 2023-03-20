@@ -1,85 +1,55 @@
-<script setup>
-import { RouterLink, RouterView } from 'vue-router'
-import HelloWorld from './components/HelloWorld.vue'
-</script>
-
 <template>
-  <header>
-    <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
-
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
-
-      <nav>
-        <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/about">About</RouterLink>
-      </nav>
-    </div>
-  </header>
-
-  <RouterView />
+  <div id="main">
+    <content-vue class="content-vue"/>
+    <aside-vue class="aside-vue"/>
+  </div>
 </template>
 
+<script>
+import AsideVue from 'comps/aside/index.vue'
+import ContentVue from 'comps/content/index.vue'
+
+import songsListStore from 'store/songsList.js'
+import { reactive, watch } from 'vue'
+
+export default {
+  setup() {
+    return {
+      songsListStore: reactive(songsListStore.state)
+    }
+  },
+  methods: {},
+  components: {
+    'aside-vue': AsideVue,
+    'content-vue': ContentVue
+  },
+  created () {}
+}
+</script>
+
 <style scoped>
-header {
-  line-height: 1.5;
-  max-height: 100vh;
+div#main{
+  width: 1920px;
+  height: 969px;
+  display: flex;
+  justify-content: space-between;
+  background-image: url("./src/assets/background.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
 }
-
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
+.content-vue {
+  width: 1050px;
+  height: 750px;
+  position: relative;
+  top: 185px;
+  left: 130px;
 }
-
-nav {
-  width: 100%;
-  font-size: 12px;
-  text-align: center;
-  margin-top: 2rem;
-}
-
-nav a.router-link-exact-active {
-  color: var(--color-text);
-}
-
-nav a.router-link-exact-active:hover {
-  background-color: transparent;
-}
-
-nav a {
-  display: inline-block;
-  padding: 0 1rem;
-  border-left: 1px solid var(--color-border);
-}
-
-nav a:first-of-type {
-  border: 0;
-}
-
-@media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
-
-  .logo {
-    margin: 0 2rem 0 0;
-  }
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
-
-  nav {
-    text-align: left;
-    margin-left: -1rem;
-    font-size: 1rem;
-
-    padding: 1rem 0;
-    margin-top: 1rem;
-  }
+.aside-vue{
+  width: 296px;
+  height: 366px;
+  position: relative;
+  top: 560px;
+  right: 150px;
 }
 </style>

@@ -14,6 +14,8 @@ dist-ssr
 coverage
 *.local
 
+test.py
+
 /cypress/videos/
 /cypress/screenshots/
 
