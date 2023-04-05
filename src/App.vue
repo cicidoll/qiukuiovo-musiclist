@@ -1,7 +1,10 @@
 <template>
   <div id="main">
-    <content-vue class="content-vue"/>
     <aside-vue class="aside-vue"/>
+    <content-vue class="content-vue"/>
+    <div class="footbar" style="text-align: center;">
+        <a href="https://beian.miit.gov.cn">京ICP备2023006501号</a>
+    </div>
   </div>
 </template>
 
@@ -10,7 +13,7 @@ import AsideVue from 'comps/aside/index.vue'
 import ContentVue from 'comps/content/index.vue'
 
 import songsListStore from 'store/songsList.js'
-import { reactive, watch } from 'vue'
+import { reactive } from 'vue'
 
 export default {
   setup() {
@@ -33,23 +36,37 @@ div#main{
   height: 969px;
   display: flex;
   justify-content: space-between;
-  background-image: url("./src/assets/background.png");
+  background-image: url("/background.png");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
 }
 .content-vue {
-  width: 1050px;
-  height: 750px;
+  width: 950px;
+  height: 767px;
   position: relative;
-  top: 185px;
-  left: 130px;
+  top: 170px;
+  left: -110px;
 }
 .aside-vue{
-  width: 296px;
-  height: 366px;
+  width: 740px;
+  height: 740px;
   position: relative;
-  top: 560px;
-  right: 150px;
+  top: 120px;
+  left: 80px;
+}
+.footbar{
+  width: 300px;
+  height: 20px;
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+}
+.footbar a {
+  font-family: "Source Han Serif CN";
+  font-weight: 500;
+  color: #FFFFFF;
+  font-size: 14px;
+  text-decoration: none;
 }
 </style>

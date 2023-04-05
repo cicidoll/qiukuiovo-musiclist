@@ -100,8 +100,8 @@ export default {
     box-sizing: border-box;
 }
 .song__bg{
-    width: 296px;
-    height: 366px;
+    width: 740px;
+    height: 740px;
     position: absolute;
     /*绝对定位*/
     top: 0;
@@ -115,8 +115,8 @@ export default {
 .song-disc{
     position: relative;
     /*相对定位 */
-    width: 296px;
-    height: 296px;
+    width: 740px;
+    height: 740px;
     margin: 0 auto;
 }
 .song-disc__bg{
@@ -127,19 +127,19 @@ export default {
     left:0;
     bottom: 0;
     right: 0;
-    background: url("./src/assets/aside/images/disk.png") no-repeat center;
+    background: url("/aside/images/disk.png") no-repeat center;
     background-size: contain;/*contain：把图像图像扩展至最大尺寸，以使其宽度和高度完全适应内容区域。*/
 }
 .song-disc__cover{
     position: absolute;
     /*绝对定位*/
     z-index: 1;
-    width: 184px;
-    height: 184px;
+    width: 468px;
+    height: 468px;
     left: 50%;
     top: 50%;
-    margin-left: -92px;
-    margin-top: -92px;
+    margin-left: -234px;
+    margin-top: -234px;
 }
 .song-img{
     width: 100%;
@@ -149,9 +149,9 @@ export default {
     font-size: 0;
 }
 .u-img{
-    width: 184px;
-    height: 184px;
-    background-image: url("./src/assets/aside/images/cover.png");
+    width: 468px;
+    height: 468px;
+    background-image: url("/aside/images/cover.png");
     background-size: cover;
 }
 .song-img.play {
@@ -174,7 +174,7 @@ export default {
     left: 50%;
     top: 50%;
     transform: translate(-50%,-50%);
-    background: url("./src/assets/aside/images/play_rdi_btn_play.png") no-repeat;
+    background: url("/aside/images/play_rdi_btn_play.png") no-repeat;
     background-size: contain;
     /*contain：把图像图像扩展至最大尺寸，以使其宽度和高度完全适应内容区域。*/
 }
@@ -187,7 +187,7 @@ export default {
     left: 50%;
     top: 50%;
     transform: translate(-50%,-50%);
-    background: url("./src/assets/aside/images/play_rdi_btn_pause.png") no-repeat;
+    background: url("/aside/images/play_rdi_btn_pause.png") no-repeat;
     background-size: contain;
     /* contain：把图像图像扩展至最大尺寸，以使其宽度和高度完全适应内容区域。*/
 }
@@ -196,10 +196,10 @@ export default {
     /*绝对定位*/
     z-index: 10;
     top: -70px;
-    width: 96px;
-    height: 137px;
-    left: 133px;
-    background: url("./src/assets/aside/images/play_needle.png") no-repeat;
+    width: 186px;
+    height: 279px;
+    left: 220px;
+    background: url("/aside/images/play_needle.png") no-repeat;
     background-size: contain;/* contain：把图像图像扩展至最大尺寸，以使其宽度和高度完全适应内容区域。*/
     transform: rotate(-30deg);
     transform-origin: left top;/* transform-origin CSS属性让你更改一个元素变形的原点。*/

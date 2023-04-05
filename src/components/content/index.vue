@@ -11,22 +11,17 @@
                     <th class="name">歌名</th>
                 </tr>
                 <tr v-for="item in searchSongs(songsList)" :key="item">
-                    <td class="index">第{{item.id}}首</td>
+                    <td class="index">第
+                        <a style="letter-spacing: 0px;">{{item.id}}</a>
+                    首</td>
                     <td class="name">{{item.name}}</td>
                 </tr>
             </table>
-
-            <!-- <item-vue v-for="item in searchSongs(songsList)"
-                :key="item"
-                :songs = "item">
-                {{ item }}
-            </item-vue> -->
         </div>
     </div>
 </template>
 
 <script>
-import ItemVue from 'comps/content/item.vue'
 import songsListStore from 'store/songsList.js'
 import { reactive, ref } from 'vue'
 
@@ -48,9 +43,7 @@ export default {
             )
         }
     },
-    components: {
-        'item-vue': ItemVue
-    },
+    components: {},
     mounted() {},
     computed: {}
 }
@@ -80,11 +73,12 @@ export default {
     border: 3px solid #FFFFFF;
     border-radius: 44px;
     font-size: 50px;
-    font-family: 'Source Han Sans CN';
-    font-weight: 500;
+    font-family: "Source Han Serif CN";
+    font-weight: 300;
     color: #FFFFFF;
     text-shadow: none;
     text-align: center;
+    letter-spacing: 3px;
 }
 input::-webkit-input-placeholder {
     color: rgba(255, 255, 255, 0.8) !important;
@@ -97,17 +91,30 @@ input::-webkit-input-placeholder {
     margin-top: 25px;
     width: 100%;
     height: 500px;
-    background-color: rgba(255, 255, 255, 0.4);
     overflow-y: scroll;
+}
+.songs-list::-webkit-scrollbar {
+    width: 20px;
+    height: 20px;
+}
+
+.songs-list::-webkit-scrollbar-thumb {
+    background: #B4B6E9;
+    border-radius: 5px;
+}
+.songs-list::-webkit-scrollbar-track {
+    border-radius: 10px;
+    background-color: #ffffffcd;
 }
 table {
     width: 100%;
     border-collapse:collapse;
+    table-layout: fixed;
 }
 tr.first {
     font-size: 30px;
-    font-family: 'Source Han Sans CN';
-    font-weight: normal;
+    font-family: "Source Han Serif CN";
+    font-weight: 300;
     color: #3D3E43;
     text-shadow: none;
     text-align: center;
@@ -118,16 +125,20 @@ tr {
 }
 td {
     font-size: 30px;
-    font-family: 'Source Han Sans CN';
+    font-family: "Source Han Serif CN";
     font-weight: normal;
     color: #acb7ec;
     text-shadow: none;
     text-align: center;
-    border-right:  3px solid #B4B6E9;;
+    
+}
+td.index {
+    border-right:  3px solid #B4B6E9;
 }
 .index {
     width: 300px;
     text-align: center;
+    letter-spacing: 2px;
 }
 .name{
     width: calc(100% - 300px);
