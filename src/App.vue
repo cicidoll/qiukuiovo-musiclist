@@ -2,9 +2,7 @@
   <div id="main">
     <aside-vue class="aside-vue"/>
     <content-vue class="content-vue"/>
-    <div class="footbar" style="text-align: center;">
-        <a href="https://beian.miit.gov.cn">京ICP备2023006501号</a>
-    </div>
+
   </div>
 </template>
 
@@ -55,18 +53,5 @@ div#main{
   top: 120px;
   left: 80px;
 }
-.footbar{
-  width: 300px;
-  height: 20px;
-  position: absolute;
-  right: 10px;
-  bottom: 10px;
-}
-.footbar a {
-  font-family: "Source Han Serif CN";
-  font-weight: 500;
-  color: #FFFFFF;
-  font-size: 14px;
-  text-decoration: none;
-}
+
 </style>
