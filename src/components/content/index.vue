@@ -2,19 +2,25 @@
     <div>
         <div class="search">
             <div class="select"></div>
-            <input class="input" v-model="search" placeholder="请输入想搜索的歌曲名">
+            <input class="input" v-model="search" placeholder="请输入想搜索的序号、歌名、歌手、语种、类型">
         </div>
         <div class="songs-list">
-            <table>
+            <table class="table">
                 <tr class="first">
                     <th class="index">序号</th>
                     <th class="name">歌名</th>
+                    <th class="singer">歌手</th>
+                    <th class="language">语种</th>
+                    <th class="type">类型</th>
+                    <th class="pay">是否付费</th>
                 </tr>
-                <tr v-for="item in searchSongs(songsList)" :key="item">
-                    <td class="index">第
-                        <a style="letter-spacing: 0px;">{{item.id}}</a>
-                    首</td>
+                <tr v-for="(item) in searchSongs(songsList)" :key="item">
+                    <td class="index">第<a style="letter-spacing: 4px;">{{item.id}}</a>首</td>
                     <td class="name">{{item.name}}</td>
+                    <td class="singer">{{item.singer}}</td>
+                    <td class="language">{{item.language}}</td>
+                    <td class="type">{{item.type === "" ? "/" : item.type}}</td>
+                    <td class="pay">{{item.pay === "" ? "否" : item.pay + "元"}}</td>
                 </tr>
             </table>
         </div>
@@ -36,7 +42,14 @@ export default {
         searchSongs(list) {
             return this.search == "" ? list : list.filter(
                 (item) => {
-                    if(item["name"].includes(this.search)){
+                    if(
+                        String(item["id"]).includes(this.search) ||
+                        item["name"].includes(this.search) ||
+                        item["singer"].includes(this.search) ||
+                        item["language"].includes(this.search) ||
+                        item["type"].includes(this.search)
+                        )
+                    {
                         return item
                     }
                 }
@@ -72,7 +85,7 @@ export default {
     background: linear-gradient(to right, #C2B3E9, #B4B6E9);
     border: 3px solid #FFFFFF;
     border-radius: 44px;
-    font-size: 50px;
+    font-size: 30px;
     font-family: "Source Han Serif CN";
     font-weight: 300;
     color: #FFFFFF;
@@ -89,7 +102,6 @@ input::-webkit-input-placeholder {
 }
 .songs-list {
     margin-top: 25px;
-    width: 100%;
     height: 500px;
     overflow-y: scroll;
 }
@@ -97,7 +109,6 @@ input::-webkit-input-placeholder {
     width: 20px;
     height: 20px;
 }
-
 .songs-list::-webkit-scrollbar-thumb {
     background: #B4B6E9;
     border-radius: 5px;
@@ -107,12 +118,16 @@ input::-webkit-input-placeholder {
     background-color: #ffffffcd;
 }
 table {
-    width: 100%;
+
     border-collapse:collapse;
     table-layout: fixed;
+    margin: 0 auto;
+}
+table.table{
+    width: 100%;
 }
 tr.first {
-    font-size: 30px;
+    font-size: 22px;
     font-family: "Source Han Serif CN";
     font-weight: 300;
     color: #3D3E43;
@@ -120,28 +135,44 @@ tr.first {
     text-align: center;
 }
 tr {
-    height: 50px;
-    margin-bottom: 5px;
+    margin-bottom: 15px;
+}
+th {
+    padding: 10px;
 }
 td {
-    font-size: 30px;
+    width: fit-content;
+    font-size: 22px;
+    line-height: 30px;
     font-family: "Source Han Serif CN";
     font-weight: normal;
     color: #acb7ec;
     text-shadow: none;
     text-align: center;
-    
-}
-td.index {
-    border-right:  3px solid #B4B6E9;
+    padding: 10px;
 }
 .index {
-    width: 300px;
+    padding-left: 15px;
+    padding-right: 20px;
+    border-right: 3px solid #B4B6E9;
+}
+.index, .language, .type {
+    /* width: 100px; */
+    text-align: center;
+    letter-spacing: 2px;
+}
+.singer
+{
+    text-align: center;
+    letter-spacing: 4px;
+    white-space: nowrap;
+}
+.pay {
     text-align: center;
     letter-spacing: 2px;
 }
 .name{
-    width: calc(100% - 300px);
     text-align: center;
+    padding-left: 20px;
 }
 </style>

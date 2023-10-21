@@ -2,7 +2,6 @@
   <div id="main">
     <aside-vue class="aside-vue"/>
     <content-vue class="content-vue"/>
-
   </div>
 </template>
 
@@ -53,5 +52,4 @@ div#main{
   top: 120px;
   left: 80px;
 }
-
 </style>
